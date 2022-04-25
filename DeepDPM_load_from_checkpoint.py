@@ -12,7 +12,7 @@ args = argparse.Namespace()
 for key, value in hyper_param.items():
     setattr(args, key, value)
 
-model = ClusterNetModel.load_from_checkpoint(
+model
     checkpoint_path=cp_path,
     input_dim=args.latent_dim,
     init_k = K,
@@ -25,7 +25,7 @@ dataset_obj = embbededDataset(args)
 _, val_loader = dataset_obj.get_loaders()
 cluster_assignments = []
 for data, label in val_loader:
-    soft_assign = model(data)
+    soft_assign
     hard_assign = soft_assign.argmax(-1)
     cluster_assignments.append(hard_assign)
 print(cluster_assignments)
